@@ -7,8 +7,12 @@ gem 'rake', '0.9.2'
 
 gem 'json'
 gem 'authlogic'
+gem 'oauth'
+gem 'oauth2-provider'
 gem 'mysql'
 gem 'actionmailer'
+gem 'twitter'
+
 
 gem 'jquery-rails'
 
@@ -20,3 +24,4 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug'
+
