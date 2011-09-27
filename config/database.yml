@@ -1,0 +1,19 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: qrcode_game_dev
+  pool: 5
+  username: root
+  password: 
+  host: localhost
+  
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: qrcode_game_production
+  pool: 5
+  username: asdasdasd
+  password: asdasdasd
+  socket: /tmp/mysql.sock
