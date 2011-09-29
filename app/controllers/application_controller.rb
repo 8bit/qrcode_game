@@ -1,18 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  def current_account
-    @current_account ||= session[:account_id] && Account.find_by_id(session[:account_id])
-  end
-
-  helper_method :current_account
-
+  helper_method :current_user
+  
   private
-
-  def authenticate_account
-    unless current_account
-      session[:return_url] = request.fullpath
-      redirect_to new_session_url
-    end
+  
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 end

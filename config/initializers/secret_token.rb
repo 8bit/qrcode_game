@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-QrcodeGame::Application.config.secret_token = '882f0873047e37bda3abce69688ff0eead611a5c87244f6572cf77a3da65b72af71c137e81469ab0ad2009daff4147a3ddaff521f0725872d82e1700b8b7a389'
+QrcodeGame::Application.config.secret_token = '1376012fdef8bb7960e9c4e5a0ec7f18bf54e134d2142eda38bf2687690158c98fa13eea028fbf65ee3e9159dfd9bf106d5b1c90227a00c370d9bc426bd8350a'
