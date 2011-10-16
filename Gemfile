@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '2.3.11'
+gem 'authlogic', '2.1.6'
+gem 'omniauth', '0.2.6'
 gem 'mysql'
-gem 'nifty-generators'
-gem 'omniauth'
+#gem 'memcached-northscale'
 

@@ -7,13 +7,3 @@ development:
   username: root
   password: 
   host: localhost
-  
-production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: true
-  database: qrcode_game_production
-  pool: 5
-  username: sdfsdf
-  password: sdfsdf
-  socket: /tmp/mysql.sock

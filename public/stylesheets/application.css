@@ -1,0 +1,195 @@
+*{margin:0;padding:0}
+
+  body {
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-size: 15px;
+    color:#444;
+  }
+
+  a img {
+    border: none;
+  }
+
+  a, a:hover {
+    color: #369;
+    text-decoration:none;
+  }
+
+  a:hover {
+    text-decoration:underline;
+  }
+
+  .clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+  }
+
+  #container {
+	background: url(/images/bg.png) no-repeat;
+    width:280px;
+	height:415px;
+	margin-left:18px;
+    background-color: #FFF;
+    padding: 20px 20px;
+    margin-top: 20px;
+  }
+
+  #flash_notice, #flash_error {
+    padding:  6px;
+    margin: 8px 0;
+  }
+
+  #flash_notice {
+	width:240px;
+    background-color: #FEEFB3;
+    border: 1px solid #ffe26f;
+    color:#9F6000;
+  }
+
+  #flash_error {
+    background-color: #f9e5e0;
+    border: 1px solid #ffd0c4;
+    color:#A30000;
+  }
+
+  .fieldWithErrors {
+    display: inline;
+  }
+
+  #errorExplanation {
+    width: 240px;
+    border: 2px solid #CF0000;
+    padding: 0px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+  }
+
+  #errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  #errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 8px;
+  }
+
+  #errorExplanation ul {
+    margin: 2px 24px;
+  }
+
+  #errorExplanation ul li {
+    font-size: 12px;
+    list-style: disc;
+  }
+
+  #user_nav {
+    float: left;
+    font-size: 14px;
+	margin-top:130px;
+  }
+
+  .auth_provider {
+    margin-right:6px;
+  }
+
+  #omniauth_connect p {
+    margin:1em 0 5px 0;
+  }
+
+  .omniauth_remove {
+    position:absolute;
+    margin-left:-5px;
+  }
+
+  .auth_providers_used {
+    margin-right:4px;
+  }
+
+  #logo {
+    float:left;
+  }
+
+  #logo h1 a {
+    color:#333;
+    text-decoration:none;
+  }
+
+  input[type=text], input[type=password], textarea {
+    border:0;
+    border:1px solid #ccc;
+    padding:5px;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-size: 14px;
+    color:#444;
+  }
+
+  input[type=text]:focus, input[type=password]:focus, textarea:focus {
+    border:1px solid #aaa;
+  }
+
+  * {
+    outline:none;
+  }
+
+  .user-form {
+    float:left;
+  }
+
+  .omniauth-connect {
+    float:left;
+  }
+	.omniauth-connect img {width:57px}
+
+  .clear {
+    clear:both;
+  }
+
+  .twitter-follow-button {
+    width:140px !important;
+  }
+
+  .follow-me {
+    padding: 0 0px 0px 0;
+    position:absolute;
+    margin-left:850px;
+    margin-top:50px;
+  }
+
+  #status_message {
+    width:300px;
+  }
+
+  td {
+    vertical-align:top;
+  }
+
+  td p {
+    margin-bottom:5px;
+  }
+
+  .time {
+    color:#999;
+    font-size:12px;
+  }
+
+  .username {
+    color:#007000;
+  }
+
+  .no-username {
+    color:#888;
+  }
+
+  .let-me-know {
+    color:#999;
+    font-size:13px;
+  }
