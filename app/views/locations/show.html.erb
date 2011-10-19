@@ -1,0 +1,20 @@
+<h3 style="margin-top:-10px">Checkins</h3>
+
+<table>
+	
+	<% @locations.each do | location |%>
+		<tr>
+			<td>
+				<% @checkins.each do |checkin| %>
+					<% if Locations.find(checkin.location_id).id == location.id %>
+						YES
+					<% end %>	
+				<% end %>
+			</td>
+			<td style="padding-left:20px;">
+				<%= location.name + "<br>" %>
+			</td>
+		</tr>
+	<% end %>
+
+</table>

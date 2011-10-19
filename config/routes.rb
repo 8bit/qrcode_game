@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :authorizations
   map.resources :user_sessions
   map.resources :users
+  map.resources :locations
+  map.resources :checkins
 
   map.root :controller => 'home', :action => 'index'
 
