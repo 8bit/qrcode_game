@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :checkins
 
   map.root :controller => 'home', :action => 'index'
+  
+  map.signup 'oops', :controller => 'oops', :action => 'show'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.signin 'signin', :controller => 'user_sessions', :action => 'new'

@@ -1,17 +1,20 @@
-<h3 style="margin-top:-10px">Checkins</h3>
-
-<table>
+<table style="margin-top:-22px;margin-left:0px;border-collapse:collapse;width:239px;">
 	
-	<% @locations.each do | location |%>
-		<tr>
-			<td>
+	<% @locations.each_with_index do | location, i |%>
+		<tr id="current_row<%= i.to_s %>">
+			<td style="width:30px;">
 				<% @checkins.each do |checkin| %>
 					<% if Locations.find(checkin.location_id).id == location.id %>
-						YES
+						<img style="width:22px;padding:1px;" src="/images/check.png" />
+						<script language="javascript" type="text/javascript">
+							document.getElementById("current_row<%= i.to_s %>").style.background = "#e5f8ff";
+						</script>
+					<% else %>
+						<img style="width:22px;padding:1px;" src="/images/not_check.png" />
 					<% end %>	
 				<% end %>
 			</td>
-			<td style="padding-left:20px;">
+			<td style="padding-left:6px;padding-top:3px;">
 				<%= location.name + "<br>" %>
 			</td>
 		</tr>
