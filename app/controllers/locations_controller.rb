@@ -13,6 +13,8 @@ class LocationsController < ApplicationController
   def create(hash_code)
     if current_user.present?
       @location = Locations.find_by_hash_code(hash_code)
+      @current_location_id = @location.id.to_s
+      
       if @checkins = current_user.checkinss.count == 0 && @location.id != 1
         redirect_to "/oops"
       else
