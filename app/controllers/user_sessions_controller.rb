@@ -11,11 +11,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Successfully created user session."
-      if session[:snapback]
-        redirect_to session[:snapback]
-      else
-        redirect_to locations_path
-      end
+      redirect_to root_url
     else
       render :new
     end
