@@ -1,34 +1,46 @@
 class LocationsController < ApplicationController
   
-  def show
-    if current_user.present?
-      create(params[:id])
+  def index 
+    if current_user
+      @locations = Location.all
       @checkins = current_user.checkins
-      @locations = Locations.all
     else
       redirect_to root_url
     end
   end
   
-  def create(hash_code)
-    if current_user.present?
-      @location = Locations.find_by_hash_code(hash_code)
-      @current_location_id = @location.id.to_s
-      
-      if @checkins = current_user.checkins.count == 0 && @location.id != 1
-        redirect_to "/oops"
+  def show
+    if @location = Location.find_by_hash_code(params[:id])
+      if current_user.present?
+        create(params[:id])
+        @checkins = current_user.checkins
+        @locations = Location.all
       else
-        @checkin = Checkin.new
-        @checkin.user_id = current_user.id
-        @checkin.location_id = @location.id
-    
-        unless current_user.checkins.find_by_location_id(@location.id).present?
-          @checkin.save
-        end
+        session[:snapback] = url_for(@location)
+        redirect_to root_url
       end
     else
-      redirect_to root_url
+      flash[:notice] = "Error: Location Not Found."
+      redirect_to locations_path
     end
+  end
+  
+  def create(hash_code)
+      if current_user.present?
+        @location = Location.find_by_hash_code(hash_code)
+        @checkins = current_user.checkins      
+        if @checkins.count == 0 && @location.id != 1
+          redirect_to "/oops"
+        else
+          @checkin = Checkin.new(:user => current_user, :location => @location)
+          unless current_user.locations.exists?(@location)
+            @checkin.save
+          end
+        end
+      else
+        session[:snapback] = url_for(@location)
+        redirect_to root_url
+      end
   end
   
 end

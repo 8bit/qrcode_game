@@ -1,16 +1,11 @@
 <table style="margin-top:-22px;margin-left:0px;border-collapse:collapse;width:239px;">
 	
-	<% @locations.each_with_index do | location, i |%>
-		<tr id="current_row<%= location.id.to_s %>">
+	<% @locations.each do |location| %>
+		<tr>
 			<td style="width:30px;">
-				<% @found = false %>
-				<% @checkins.each do |checkin| %>
-					<% if Locations.find(checkin.location_id).id == location.id %>
-						<img style="width:22px;padding:1px;" src="/images/check.png" />
-						<% @found = true %>
-					<% end %>
-				<% end %>
-				<% unless @found %>
+				<% if location.users.exists?(current_user) %>
+					<img style="width:22px;padding:1px;" src="/images/check.png" />
+				<% else %>
 					<img style="width:22px;padding:1px;" src="/images/not_check.png" />
 				<% end %>
 			</td>
@@ -19,10 +14,6 @@
 			</td>
 		</tr>
 	<% end %>
-	
-	<script language="javascript" type="text/javascript">
-		document.getElementById("current_row<%= @location.id%>").style.background = "#e5f8ff";
-	</script>
 	
 	<% if @checkins.count == 8 %>
 	
