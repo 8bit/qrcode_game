@@ -1,4 +1,4 @@
-class CreateCheckins < ActiveRecord::Migration
+class CreateCheckin < ActiveRecord::Migration
   def self.up
     create_table :checkins do |t|
       t.integer :user_id

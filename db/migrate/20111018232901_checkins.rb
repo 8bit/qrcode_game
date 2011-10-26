@@ -1,4 +1,4 @@
-class Checkins < ActiveRecord::Migration
+class Checkin < ActiveRecord::Migration
   def self.up
   end
 
