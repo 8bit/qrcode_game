@@ -9,26 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018233005) do
+ActiveRecord::Schema.define(:version => 20111018232946) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "checkins", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "locations", :force => true do |t|
-    t.string   "name"
-    t.string   "hash_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +35,10 @@ ActiveRecord::Schema.define(:version => 20111018233005) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "gender"
   end
 
 end
