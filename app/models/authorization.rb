@@ -8,7 +8,7 @@ class Authorization < ActiveRecord::Base
   end
 
   def self.create_from_hash(hash, user = nil)
-    user ||= User.create_from_hash(hash)
+    user ||= User.create_from_hash(hash, hash['provider'].to_s)
     Authorization.create(:user_id => user.id, :uid => hash['uid'], :provider => hash['provider'])
   end
 end

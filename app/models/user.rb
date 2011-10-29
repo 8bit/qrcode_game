@@ -24,16 +24,42 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.create_from_hash(hash)
+  def self.create_from_hash(hash, provider)
     user = User.new(:username =>  hash['user_info']['name'].scan(/[a-zA-Z0-9_]/).to_s.downcase)
-    user.first_name = hash['user_info']['first_name'].to_s
-    user.last_name = hash['user_info']['last_name'].to_s
-    user.gender = hash['user_info']['gender'].to_s
-    user.email = hash['user_info']['email'].to_s
-    user.location = hash['user_info']['location'].to_s
-    user.bio = hash['user_info']['bio'].to_s
-    user.website = hash['user_info']['website'].to_s
-    user.work = hash['user_info']['work'].to_s
+    
+    begin
+      if provider == "facebook"
+        user.first_name = hash['user_info']['first_name'].to_s
+        user.last_name = hash['user_info']['last_name'].to_s
+        user.gender = hash['user_info']['gender'].to_s
+        user.email = hash['user_info']['email'].to_s
+        user.location = hash['user_info']['location'].to_s
+        user.bio = hash['user_info']['bio'].to_s
+        user.work = hash['user_info']['work'].to_s
+      end
+    
+      if provider == "twitter"
+        user.location = hash['user_info']['location'].to_s
+        user.website = hash['user_info']['url'].to_s
+      end
+    
+      if provider == "linked_in"
+        user.first_name = hash['user_info']['first-name'].to_s
+        user.last_name = hash['user_info']['last-name'].to_s
+        user.location = hash['user_info']['location']['name'].to_s
+      end
+    
+      if provider == "open_id"
+        user.first_name = hash['user_info']['firstName'].to_s
+        user.last_name = hash['user_info']['lastnName'].to_s
+        user.location = hash['user_info']['location'].to_s
+        user.gender = hash['user_info']['gender'].to_s
+        user.bio = hash['user_info']['aboutMe'].to_s
+      end
+    rescue Exception=>e
+      # JUST IN CASE
+    end
+
     user.save(false) #create the user without performing validations. This is because most of the fields are not set.
     user.reset_persistence_token! #set persistence_token else sessions will not be created
     user
