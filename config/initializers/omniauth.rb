@@ -3,7 +3,7 @@ require 'openid/store/filesystem'
 ActionController::Dispatcher.middleware.use OmniAuth::Builder do
   # :scope parameter specifies the requested permissions for graph api. if you set it to empty, it will only pull the basic info. Default values for this is 'email, offline_access'
   # provide Site URL as http://localhost:3000/ in your facebook app. Now you will be able to access it from your development machine
-  facebook_options = {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}, :scope => ''}
+  facebook_options = {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}, :scope => 'manage_pages, email, publish_stream, offline_access'}
 
   provider :twitter, 'pywkRLwKIQr0n6iOzrWBpg', 'j4Qo9bBQMGkTEJse3SJY47nbbs6ySZIJoedKiYRyf4'
   provider :facebook, '241248755922188', 'f4d5e00b44bf78f186f7c464da4c47cc', facebook_options

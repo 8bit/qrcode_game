@@ -25,6 +25,7 @@ GEM
     multipart-post (1.1.3)
     mysql (2.8.1)
     net-ldap (0.2.2)
+    newrelic_rpm (3.2.0)
     nokogiri (1.4.7)
     oa-basic (0.2.6)
       oa-core (= 0.2.6)
@@ -93,6 +94,7 @@ DEPENDENCIES
   authlogic (= 2.1.6)
   hirb
   mysql
+  newrelic_rpm
   omniauth (= 0.2.6)
   rails (= 2.3.11)
   spreadsheet
