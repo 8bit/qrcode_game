@@ -4,11 +4,10 @@ class AuthorizationsController < ApplicationController
   def create
     omniauth = request.env['omniauth.auth'] #this is where you get all the data from your provider through omniauth
     @auth = Authorization.find_from_hash(omniauth)
-    if current_user
-      flash[:notice] = "Successfully added #{omniauth['provider']} authentication"
-      current_user.authorizations.create(:provider => omniauth['provider'], :uid => omniauth['uid']) #Add an auth to existing user
-      redirect_to edit_user_path(:current)
-    elsif @auth
+    logger.info "Provider: #{omniauth['provider']}"
+    logger.info "Nickname: #{omniauth['nickname']}"
+    logger.info "OmniAuth Hash: #{omniauth}"
+    if @auth
       flash[:notice] = "Welcome back #{omniauth['provider']} user"
       UserSession.create(@auth.user, true) #User is present. Login the user with his social account
       redirect_to root_url
