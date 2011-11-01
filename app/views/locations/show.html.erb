@@ -18,11 +18,4 @@
 	<script language="javascript" type="text/javascript">
 		document.getElementById("current_row<%= @location.id%>").style.background = "#e5f8ff";
 	</script>
-	
-	<% if @checkins.count == 8 %>
-	
-		<div style="position:absolute;margin-top:40px;margin-left:30px;background-color:#ffffff;padding:20px;border:5px solid #333">
-			<h1>WINNER!</h1> 
-		</div>
-	<% end %>
 </table>
