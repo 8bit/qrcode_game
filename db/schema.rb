@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101001306) do
+ActiveRecord::Schema.define(:version => 20111101005311) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(:version => 20111101001306) do
   create_table "statuses", :force => true do |t|
     t.string   "message"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "typus_users", :force => true do |t|
+    t.string   "first_name",       :default => "",    :null => false
+    t.string   "last_name",        :default => "",    :null => false
+    t.string   "role",                                :null => false
+    t.string   "email",                               :null => false
+    t.boolean  "status",           :default => false
+    t.string   "token",                               :null => false
+    t.string   "salt",                                :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "preferences"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

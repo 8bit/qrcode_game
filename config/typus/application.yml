@@ -1,0 +1,59 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Authorization:
+  fields:
+    default: provider, uid, user
+    list: provider, uid, user
+    form: provider, uid, user
+  order_by: 
+  relationships: user
+  filters: 
+  search: 
+  application: qrcode_game
+
+Checkin:
+  fields:
+    default: user, location
+    list: user, location
+    form: user, location
+  order_by: 
+  relationships: location, user
+  filters: 
+  search: 
+  application: qrcode_game
+
+Location:
+  fields:
+    default: name, hash_code
+    list: name, hash_code
+    form: name, hash_code
+  order_by: 
+  relationships: checkins, users
+  filters: 
+  search: name
+  application: qrcode_game
+
+Status:
+  fields:
+    default: message, user
+    list: message, user
+    form: message, user
+  order_by: 
+  relationships: user
+  filters: 
+  search: 
+  application: qrcode_game
+
+User:
+  fields:
+    default: username, first_name, last_name, gender, email, location, bio, website, work
+    list: username, first_name, last_name, gender, email, location, bio, website, work
+    form: username, first_name, last_name, gender, email, location, bio, website, work, user_info
+  order_by: 
+  relationships: authorizations, checkins, locations, statuses
+  filters: 
+  search: 
+  application: qrcode_game
+

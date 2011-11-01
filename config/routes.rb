@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  Typus::Routes.draw(map)
   map.resources :authorizations
   map.resources :user_sessions
   map.resources :users
