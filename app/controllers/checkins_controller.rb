@@ -22,9 +22,9 @@ class CheckinsController < ApplicationController
         end
         
         sheet_users = book.create_worksheet :name => 'Users'
-        sheet_users.row(0).concat %w{ID Name Provider Nickname Checkins }
+        sheet_users.row(0).concat %w{ID Name Provider Nickname Email Checkins }
         User.all.each_with_index do |user,index|
-          sheet_users.row(index+1).concat [user.id, user.user_info['name'], user.authorizations.first.provider, user.user_info['nickname'], user.checkins.count]
+          sheet_users.row(index+1).concat [user.id, user.user_info['name'], user.authorizations.first.provider, user.user_info['nickname'], user.user_info['email'], user.checkins.count]
         end
         
         
