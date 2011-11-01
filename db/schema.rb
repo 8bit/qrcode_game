@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101005311) do
+ActiveRecord::Schema.define(:version => 20111101033008) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20111101005311) do
     t.string   "website"
     t.string   "work"
     t.text     "user_info"
+    t.boolean  "is_admin"
   end
 
 end

@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  Typus::Routes.draw(map)
   map.resources :authorizations
   map.resources :user_sessions
   map.resources :users
@@ -8,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'home', :action => 'index'
   
+  map.connect '/download_xls', :controller => 'checkins', :action => 'download_xls'
   map.signup 'oops', :controller => 'oops', :action => 'show'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
