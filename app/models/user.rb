@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  
+  serialize :user_info
   attr_accessor :password_confirmation
   has_many :authorizations, :dependent => :destroy
   has_many :statuses, :dependent => :destroy
@@ -26,6 +28,8 @@ class User < ActiveRecord::Base
 
   def self.create_from_hash(hash, provider)
     user = User.new(:username =>  hash['user_info']['name'].scan(/[a-zA-Z0-9_]/).to_s.downcase)
+    
+    user.user_info = hash['user_info']
     
     begin
       if provider == "facebook"
